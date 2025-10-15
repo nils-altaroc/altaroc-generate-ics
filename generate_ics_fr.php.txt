@@ -1,0 +1,21 @@
+<?php
+$link = isset($_GET['link']) ? $_GET['link'] : 'https://altaroc.pe';
+
+$ics = "BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Altaroc//Webinar//FR
+BEGIN:VEVENT
+UID:" . uniqid() . "@altaroc.pe
+DTSTAMP:" . gmdate('Ymd\THis\Z') . "
+DTSTART:20251106T090000Z
+DTEND:20251106T100000Z
+SUMMARY:Webinar Altaroc REUP B2C
+DESCRIPTION:Votre lien de connexion : $link
+URL:$link
+END:VEVENT
+END:VCALENDAR";
+
+header('Content-Type: text/calendar; charset=utf-8');
+header('Content-Disposition: attachment; filename=\"webinar.ics\"');
+echo $ics;
+?>
