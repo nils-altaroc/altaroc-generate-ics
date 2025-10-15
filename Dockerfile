@@ -1,12 +1,12 @@
-# Utilise PHP 8.2
+# Utilise l’image officielle PHP
 FROM php:8.2-cli
 
-# Copie tout le code dans /app
+# Copie tous les fichiers du repo dans /app
 WORKDIR /app
 COPY . /app
 
-# Assure-toi que le fichier existe bien
+# Affiche la liste des fichiers copiés (pour debug)
 RUN ls -la /app
 
-# Démarre le serveur PHP intégré sur le port 10000
-CMD ["php", "-S", "0.0.0.]()
+# Lance le serveur PHP intégré
+CMD php -S 0.0.0.0:10000 -t /app
